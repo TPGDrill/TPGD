@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TPG Drillers - Dinking</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="cache-control" content="no-cache, must-revalidate, post-check=0, pre-check=0, max-age=0" />
+    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+    <meta http-equiv="pragma" content="no-cache" />
+
+    <style>
+        .title {
+            display: flex;
+            justify-content: left;
+            margin: 8px 8px 8px 2px;
+            width: 100%;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .header-row {
+            display: grid;
+            grid-template-columns: 80px 210px 100px repeat(10,60px);
+            font-size: 22px;
+            font-weight: bolder;
+        }
+
+        .header-row > div {
+            text-align: center;
+            padding: 5px 0px 0px 2px; 
+            border: 1px black solid;
+        }
+
+        .results {
+            display: grid;
+            grid-template-columns: 80px 210px 100px repeat(10,60px);
+        }
+        .results > div {
+            text-align: center;
+            font-size: 18px;
+            border: 1px black solid;
+        }
+
+        .results > div:nth-child(26n+1), 
+        .results > div:nth-child(26n+2),
+        .results > div:nth-child(26n+3) /*,
+        .results > div:nth-child(26n+4), 
+        .results > div:nth-child(26n+5),
+        .results > div:nth-child(26n+6),
+        .results > div:nth-child(26n+7), 
+        .results > div:nth-child(26n+8),
+        .results > div:nth-child(26n+9),
+        .results > div:nth-child(26n+10), 
+        .results > div:nth-child(26n+11),
+        .results > div:nth-child(26n+12),
+        .results > div:nth-child(26n+13) */ {
+            background-color: rgb(221,235, 247);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="title">Dinking Rankings</div>
+
+    <div class="header-row">
+        <div>Rank</div><div>Name</div><div>Total</div><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div>
+    </div>
+
+    <div class="results">
+		<div>1</div><div>Lisa Sullivan</div><div>305</div><div>29</div><div>33</div><div>33</div><div>32</div><div>33</div><div>33</div><div>19</div><div>29</div><div>33</div><div>31</div>
+		<div>2</div><div>Tom Musone</div><div>298</div><div>33</div><div>22</div><div>33</div><div>33</div><div>29</div><div>29</div><div>30</div><div>33</div><div>33</div><div>23</div>
+		<div>3</div><div>Randy Shellhorse</div><div>292</div><div>31</div><div>19</div><div>29</div><div>33</div><div>27</div><div>31</div><div>33</div><div>29</div><div>27</div><div>33</div>
+		<div>4</div><div>Mark Montgomery</div><div>289</div><div>29</div><div>31</div><div>33</div><div>29</div><div>33</div><div>25</div><div>25</div><div>22</div><div>33</div><div>29</div>
+		<div>5</div><div>Mike Scott</div><div>283</div><div>33</div><div>18</div><div>20</div><div>29</div><div>33</div><div>28</div><div>30</div><div>33</div><div>26</div><div>33</div>
+		<div>6</div><div>William Cason</div><div>281</div><div>25</div><div>30</div><div>33</div><div>21</div><div>33</div><div>30</div><div>22</div><div>33</div><div>30</div><div>24</div>
+		<div>7</div><div>Al Sabogal</div><div>278</div><div>30</div><div>29</div><div>30</div><div>33</div><div>27</div><div>32</div><div>29</div><div>31</div><div>19</div><div>19</div>
+		<div>8</div><div>Jim Grafmeyer</div><div>272</div><div>23</div><div>20</div><div>28</div><div>33</div><div>33</div><div>33</div><div>33</div><div>33</div><div>29</div><div>7</div>
+		<div>9</div><div>Terry Wenger</div><div>271</div><div>21</div><div>32</div><div>26</div><div>27</div><div>33</div><div>24</div><div>33</div><div>33</div><div>30</div><div>12</div>
+		<div>10</div><div>Kathy Pals</div><div>270</div><div>27</div><div>27</div><div>20</div><div>30</div><div>31</div><div>24</div><div>27</div><div>32</div><div>25</div><div>27</div>
+		<div>11</div><div>Daniel Couturier</div><div>264</div><div>33</div><div>33</div><div>19</div><div>9</div><div>33</div><div>12</div><div>33</div><div>33</div><div>33</div><div>26</div>
+		<div>12</div><div>Debbie McCarty</div><div>264</div><div>24</div><div>33</div><div>26</div><div>18</div><div>29</div><div>21</div><div>32</div><div>23</div><div>29</div><div>29</div>
+		<div>13</div><div>Garry Chalmers</div><div>259</div><div>30</div><div>33</div><div>22</div><div>33</div><div>29</div><div>33</div><div>31</div><div>27</div><div>11</div><div>11</div>
+		<div>14</div><div>Brian Lasky</div><div>257</div><div>33</div><div>27</div><div>13</div><div>21</div><div>24</div><div>33</div><div>27</div><div>22</div><div>33</div><div>24</div>
+		<div>15</div><div>Kim Buffington</div><div>256</div><div>26</div><div>26</div><div>26</div><div>26</div><div>26</div><div>26</div><div>26</div><div>26</div><div>26</div><div>26</div>
+		<div>16</div><div>Eugene Albert</div><div>255</div><div>30</div><div>30</div><div>18</div><div>15</div><div>23</div><div>28</div><div>28</div><div>28</div><div>28</div><div>28</div>
+		<div>17</div><div>Rob Gurney</div><div>252</div><div>25</div><div>27</div><div>24</div><div>29</div><div>31</div><div>24</div><div>21</div><div>33</div><div>16</div><div>22</div>
+		<div>18</div><div>Johnny Kong</div><div>241</div><div>16</div><div>25</div><div>19</div><div>31</div><div>25</div><div>27</div><div>33</div><div>29</div><div>33</div><div>3</div>
+		<div>19</div><div>DJ Urig</div><div>241</div><div>26</div><div>32</div><div>24</div><div>33</div><div>30</div><div>29</div><div>29</div><div>13</div><div>13</div><div>13</div>
+		<div>20</div><div>Kathryn Dent</div><div>238</div><div>33</div><div>28</div><div>17</div><div>17</div><div>19</div><div>27</div><div>30</div><div>12</div><div>29</div><div>26</div>
+		<div>21</div><div>Ann Marie Gavinski</div><div>235</div><div>28</div><div>16</div><div>28</div><div>31</div><div>26</div><div>17</div><div>29</div><div>29</div><div>16</div><div>16</div>
+		<div>22</div><div>Pam Copeland</div><div>234</div><div>23</div><div>23</div><div>23</div><div>23</div><div>23</div><div>23</div><div>23</div><div>23</div><div>23</div><div>23</div>
+		<div>23</div><div>Rosie Campbell</div><div>233</div><div>18</div><div>25</div><div>23</div><div>33</div><div>26</div><div>26</div><div>30</div><div>27</div><div>15</div><div>10</div>
+		<div>24</div><div>Karen Marlowe</div><div>233</div><div>24</div><div>32</div><div>30</div><div>33</div><div>19</div><div>31</div><div>29</div><div>20</div><div>7</div><div>7</div>
+		<div>25</div><div>Julie Bosch</div><div>228</div><div>23</div><div>23</div><div>23</div><div>23</div><div>23</div><div>23</div><div>23</div><div>23</div><div>23</div><div>23</div>
+		<div>26</div><div>Michael Marx</div><div>228</div><div>14</div><div>29</div><div>20</div><div>33</div><div>27</div><div>25</div><div>33</div><div>33</div><div>7</div><div>7</div>
+		<div>27</div><div>Buzz Barron</div><div>224</div><div>22</div><div>22</div><div>22</div><div>22</div><div>22</div><div>22</div><div>22</div><div>22</div><div>22</div><div>22</div>
+		<div>28</div><div>Nancy Knuckles</div><div>221</div><div>22</div><div>22</div><div>22</div><div>22</div><div>22</div><div>22</div><div>22</div><div>22</div><div>22</div><div>22</div>
+		<div>29</div><div>Mark Whitford</div><div>215</div><div>33</div><div>11</div><div>32</div><div>33</div><div>20</div><div>22</div><div>26</div><div>13</div><div>13</div><div>13</div>
+		<div>30</div><div>Steve Campbell</div><div>211</div><div>21</div><div>21</div><div>21</div><div>21</div><div>21</div><div>21</div><div>21</div><div>21</div><div>21</div><div>21</div>
+		<div>31</div><div>Julia Hartman</div><div>210</div><div>33</div><div>15</div><div>30</div><div>25</div><div>19</div><div>19</div><div>19</div><div>12</div><div>13</div><div>25</div>
+		<div>32</div><div>Keil Wurl</div><div>209</div><div>28</div><div>33</div><div>19</div><div>19</div><div>19</div><div>19</div><div>19</div><div>19</div><div>19</div><div>19</div>
+		<div>33</div><div>Wendy Bledsoe</div><div>203</div><div>20</div><div>33</div><div>22</div><div>31</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div>
+		<div>34</div><div>Ken Stone</div><div>202</div><div>23</div><div>15</div><div>20</div><div>20</div><div>20</div><div>20</div><div>20</div><div>20</div><div>20</div><div>20</div>
+		<div>35</div><div>Dana Poulsen</div><div>201</div><div>27</div><div>12</div><div>33</div><div>30</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div>
+		<div>36</div><div>Jim Doran</div><div>197</div><div>27</div><div>33</div><div>33</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div>
+		<div>37</div><div>Doug McClintock</div><div>195</div><div>20</div><div>20</div><div>20</div><div>20</div><div>20</div><div>20</div><div>20</div><div>20</div><div>20</div><div>20</div>
+		<div>38</div><div>Daniel Nelsen</div><div>195</div><div>19</div><div>19</div><div>19</div><div>19</div><div>19</div><div>19</div><div>19</div><div>19</div><div>19</div><div>19</div>
+		<div>39</div><div>Eric Luoma</div><div>192</div><div>22</div><div>19</div><div>19</div><div>19</div><div>19</div><div>19</div><div>19</div><div>19</div><div>19</div><div>19</div>
+		<div>40</div><div>Bob Markewich</div><div>189</div><div>19</div><div>19</div><div>19</div><div>19</div><div>19</div><div>19</div><div>19</div><div>19</div><div>19</div><div>19</div>
+		<div>41</div><div>JoJo Koscheski</div><div>186</div><div>29</div><div>10</div><div>19</div><div>25</div><div>28</div><div>21</div><div>14</div><div>14</div><div>14</div><div>14</div>
+		<div>42</div><div>Paul April</div><div>185</div><div>22</div><div>18</div><div>32</div><div>31</div><div>25</div><div>9</div><div>20</div><div>21</div><div>3</div><div>3</div>
+		<div>43</div><div>Richard Scappaticci</div><div>185</div><div>29</div><div>33</div><div>28</div><div>14</div><div>14</div><div>14</div><div>14</div><div>14</div><div>14</div><div>14</div>
+		<div>44</div><div>Jack Hurst</div><div>182</div><div>24</div><div>24</div><div>21</div><div>26</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div>
+		<div>45</div><div>Mike Kramer</div><div>182</div><div>33</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div>
+		<div>46</div><div>George Hept</div><div>173</div><div>17</div><div>17</div><div>17</div><div>17</div><div>17</div><div>17</div><div>17</div><div>17</div><div>17</div><div>17</div>
+		<div>47</div><div>Jim Suminski</div><div>171</div><div>22</div><div>33</div><div>19</div><div>33</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div>
+		<div>48</div><div>Carl Marquess</div><div>168</div><div>33</div><div>33</div><div>13</div><div>13</div><div>13</div><div>13</div><div>13</div><div>13</div><div>13</div><div>13</div>
+		<div>49</div><div>Tamara J Quinn</div><div>166</div><div>25</div><div>29</div><div>18</div><div>28</div><div>19</div><div>21</div><div>7</div><div>7</div><div>7</div><div>7</div>
+		<div>50</div><div>Tracy Herzog</div><div>166</div><div>31</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div>
+		<div>51</div><div>Barb Taylor</div><div>165</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div>
+		<div>52</div><div>Shiang-Ho Lin</div><div>165</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div>
+		<div>53</div><div>Meishen Chang</div><div>165</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div>
+		<div>54</div><div>Matthew Klein</div><div>165</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div>
+		<div>55</div><div>Lisa Nelsen</div><div>165</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div>
+		<div>56</div><div>Howard Payne</div><div>165</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div>
+		<div>57</div><div>Kurt C Reid</div><div>165</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div>
+		<div>58</div><div>Gail Spires</div><div>164</div><div>27</div><div>20</div><div>28</div><div>25</div><div>27</div><div>24</div><div>3</div><div>3</div><div>3</div><div>3</div>
+		<div>59</div><div>Tobi Meyer</div><div>164</div><div>33</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div>
+		<div>60</div><div>John Buffington</div><div>163</div><div>28</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div>
+		<div>61</div><div>Melinda Mazo</div><div>163</div><div>12</div><div>17</div><div>17</div><div>17</div><div>17</div><div>17</div><div>17</div><div>17</div><div>17</div><div>17</div>
+		<div>62</div><div>Joyce Kanter</div><div>162</div><div>13</div><div>26</div><div>19</div><div>17</div><div>21</div><div>15</div><div>31</div><div>7</div><div>7</div><div>7</div>
+		<div>63</div><div>Steve Kazley</div><div>161</div><div>29</div><div>27</div><div>31</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div>
+		<div>64</div><div>Patrick Lee</div><div>157</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div><div>16</div>
+		<div>65</div><div>Oliver Sun</div><div>156</div><div>33</div><div>24</div><div>12</div><div>12</div><div>12</div><div>12</div><div>12</div><div>12</div><div>12</div><div>12</div>
+		<div>66</div><div>Kathleen O'Connor</div><div>156</div><div>31</div><div>26</div><div>27</div><div>26</div><div>8</div><div>8</div><div>8</div><div>8</div><div>8</div><div>8</div>
+		<div>67</div><div>Jim Mathre</div><div>155</div><div>33</div><div>32</div><div>33</div><div>28</div><div>5</div><div>5</div><div>5</div><div>5</div><div>5</div><div>5</div>
+		<div>68</div><div>Ron Watson</div><div>153</div><div>28</div><div>33</div><div>33</div><div>10</div><div>8</div><div>8</div><div>8</div><div>8</div><div>8</div><div>8</div>
+		<div>69</div><div>Mary Utic</div><div>153</div><div>32</div><div>24</div><div>29</div><div>28</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div>
+		<div>70</div><div>Phil Simmons</div><div>153</div><div>9</div><div>33</div><div>27</div><div>29</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div>
+		<div>71</div><div>Julie Van Sambeek</div><div>153</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div>
+		<div>72</div><div>Jim Locascio</div><div>150</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div>
+		<div>73</div><div>Terry Younghans</div><div>150</div><div>31</div><div>26</div><div>33</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div>
+		<div>74</div><div>Eva Peters</div><div>149</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div>
+		<div>75</div><div>Wallace Pero</div><div>148</div><div>22</div><div>16</div><div>13</div><div>18</div><div>13</div><div>13</div><div>13</div><div>13</div><div>13</div><div>13</div>
+		<div>76</div><div>Tony Birchall</div><div>146</div><div>23</div><div>32</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div>
+		<div>77</div><div>Beth Dicomitis</div><div>145</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div><div>15</div>
+		<div>78</div><div>Frank DeLaura</div><div>145</div><div>21</div><div>19</div><div>19</div><div>21</div><div>19</div><div>33</div><div>3</div><div>3</div><div>3</div><div>3</div>
+		<div>79</div><div>Peter Gemuenden</div><div>142</div><div>14</div><div>14</div><div>14</div><div>14</div><div>14</div><div>14</div><div>14</div><div>14</div><div>14</div><div>14</div>
+		<div>80</div><div>Donna McCarty</div><div>140</div><div>14</div><div>14</div><div>14</div><div>14</div><div>14</div><div>14</div><div>14</div><div>14</div><div>14</div><div>14</div>
+		<div>81</div><div>Lea Hoffacker</div><div>134</div><div>26</div><div>12</div><div>12</div><div>12</div><div>12</div><div>12</div><div>12</div><div>12</div><div>12</div><div>12</div>
+		<div>82</div><div>Dan Zutter</div><div>133</div><div>20</div><div>13</div><div>13</div><div>13</div><div>13</div><div>13</div><div>13</div><div>13</div><div>13</div><div>13</div>
+		<div>83</div><div>Steve Stevenson</div><div>130</div><div>30</div><div>28</div><div>26</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div>
+		<div>84</div><div>Guy Davis</div><div>129</div><div>13</div><div>13</div><div>13</div><div>13</div><div>13</div><div>13</div><div>13</div><div>13</div><div>13</div><div>13</div>
+		<div>85</div><div>Robin Boring</div><div>127</div><div>13</div><div>13</div><div>13</div><div>13</div><div>13</div><div>13</div><div>13</div><div>13</div><div>13</div><div>13</div>
+		<div>86</div><div>Daniel Krick</div><div>125</div><div>13</div><div>13</div><div>13</div><div>13</div><div>13</div><div>13</div><div>13</div><div>13</div><div>13</div><div>13</div>
+		<div>87</div><div>Kimberly Hedden</div><div>125</div><div>13</div><div>13</div><div>13</div><div>13</div><div>13</div><div>13</div><div>13</div><div>13</div><div>13</div><div>13</div>
+		<div>88</div><div>Suzanne Huttenstine</div><div>125</div><div>13</div><div>13</div><div>13</div><div>13</div><div>13</div><div>13</div><div>13</div><div>13</div><div>13</div><div>13</div>
+		<div>89</div><div>Mike Cluck</div><div>125</div><div>16</div><div>10</div><div>18</div><div>22</div><div>26</div><div>20</div><div>3</div><div>3</div><div>3</div><div>3</div>
+		<div>90</div><div>Louie Heindel</div><div>123</div><div>19</div><div>33</div><div>33</div><div>18</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div>
+		<div>91</div><div>David Wulbrecht</div><div>121</div><div>12</div><div>12</div><div>12</div><div>12</div><div>12</div><div>12</div><div>12</div><div>12</div><div>12</div><div>12</div>
+		<div>92</div><div>Tom Wesselman</div><div>121</div><div>12</div><div>12</div><div>12</div><div>12</div><div>12</div><div>12</div><div>12</div><div>12</div><div>12</div><div>12</div>
+		<div>93</div><div>Joyce Sarkisian</div><div>121</div><div>12</div><div>12</div><div>12</div><div>12</div><div>12</div><div>12</div><div>12</div><div>12</div><div>12</div><div>12</div>
+		<div>94</div><div>Margaret Wilkerson</div><div>119</div><div>18</div><div>14</div><div>32</div><div>15</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div>
+		<div>95</div><div>Brenda Glenn</div><div>118</div><div>33</div><div>32</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div>
+		<div>96</div><div>Tiba Risenquist</div><div>117</div><div>12</div><div>12</div><div>12</div><div>12</div><div>12</div><div>12</div><div>12</div><div>12</div><div>12</div><div>12</div>
+		<div>97</div><div>Luis Garcia</div><div>113</div><div>32</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div>
+		<div>98</div><div>Nina Riley</div><div>113</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div>
+		<div>99</div><div>Theresa Wiederoder</div><div>112</div><div>26</div><div>33</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div>
+		<div>100</div><div>Jerry Herrmann</div><div>109</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div>
+		<div>101</div><div>Michael Poirier</div><div>109</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div>
+		<div>102</div><div>Doc Harris</div><div>106</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div>
+		<div>103</div><div>Amy Cameron</div><div>106</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div>
+		<div>104</div><div>Nancy Walker</div><div>106</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div>
+		<div>105</div><div>Patricia Simon</div><div>106</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div><div>11</div>
+		<div>106</div><div>Kathy Fairfield</div><div>104</div><div>10</div><div>10</div><div>10</div><div>10</div><div>10</div><div>10</div><div>10</div><div>10</div><div>10</div><div>10</div>
+		<div>107</div><div>Lee Anne Cook</div><div>103</div><div>23</div><div>27</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div>
+		<div>108</div><div>Diane Tortorice</div><div>102</div><div>18</div><div>33</div><div>6</div><div>6</div><div>6</div><div>6</div><div>6</div><div>6</div><div>6</div><div>6</div>
+		<div>109</div><div>Phillip Irwin</div><div>100</div><div>18</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div>
+		<div>110</div><div>Sook Wilkinson</div><div>100</div><div>16</div><div>25</div><div>14</div><div>5</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div>
+		<div>111</div><div>Francis Stokes</div><div>99</div><div>10</div><div>10</div><div>10</div><div>10</div><div>10</div><div>10</div><div>10</div><div>10</div><div>10</div><div>10</div>
+		<div>112</div><div>Rick Edelman</div><div>99</div><div>10</div><div>10</div><div>10</div><div>10</div><div>10</div><div>10</div><div>10</div><div>10</div><div>10</div><div>10</div>
+		<div>113</div><div>Don Hendershot</div><div>98</div><div>10</div><div>10</div><div>10</div><div>10</div><div>10</div><div>10</div><div>10</div><div>10</div><div>10</div><div>10</div>
+		<div>114</div><div>Marina Bouchier</div><div>97</div><div>23</div><div>26</div><div>25</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div>
+		<div>115</div><div>Patrick Hill</div><div>94</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div>
+		<div>116</div><div>Meta Smith</div><div>94</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div>
+		<div>117</div><div>Mary Dalu</div><div>93</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div>
+		<div>118</div><div>Maureen Plainfield</div><div>93</div><div>27</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div>
+		<div>119</div><div>Steven Walls</div><div>92</div><div>33</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div>
+		<div>120</div><div>Michael Mosca</div><div>92</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div>
+		<div>121</div><div>Ron Carrick</div><div>91</div><div>14</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div>
+		<div>122</div><div>Jimmy Bowes</div><div>91</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div>
+		<div>123</div><div>Michael Stevenson</div><div>91</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div>
+		<div>124</div><div>Cindy Davis</div><div>90</div><div>31</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div>
+		<div>125</div><div>David Lloyd</div><div>89</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div>
+		<div>126</div><div>Jeff Homolka</div><div>88</div><div>30</div><div>6</div><div>6</div><div>6</div><div>6</div><div>6</div><div>6</div><div>6</div><div>6</div><div>6</div>
+		<div>127</div><div>Diane Fuleky</div><div>86</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div>
+		<div>128</div><div>Moon Toomey</div><div>86</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div>
+		<div>129</div><div>Sam Washburn</div><div>86</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div>
+		<div>130</div><div>Kimberly McLain</div><div>85</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div><div>9</div>
+		<div>131</div><div>Stephen Bussey</div><div>85</div><div>33</div><div>26</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div>
+		<div>132</div><div>Barry Cummins</div><div>83</div><div>24</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div>
+		<div>133</div><div>Suzanne Wibby</div><div>82</div><div>23</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div>
+		<div>134</div><div>Charles Tolliver</div><div>82</div><div>8</div><div>8</div><div>8</div><div>8</div><div>8</div><div>8</div><div>8</div><div>8</div><div>8</div><div>8</div>
+		<div>135</div><div>Kathy Yates</div><div>82</div><div>8</div><div>8</div><div>8</div><div>8</div><div>8</div><div>8</div><div>8</div><div>8</div><div>8</div><div>8</div>
+		<div>136</div><div>Betty Sullentrup</div><div>80</div><div>8</div><div>8</div><div>8</div><div>8</div><div>8</div><div>8</div><div>8</div><div>8</div><div>8</div><div>8</div>
+		<div>137</div><div>Michael Garwood</div><div>80</div><div>11</div><div>33</div><div>4</div><div>4</div><div>4</div><div>4</div><div>4</div><div>4</div><div>4</div><div>4</div>
+		<div>138</div><div>Rey Sollestre</div><div>79</div><div>8</div><div>8</div><div>8</div><div>8</div><div>8</div><div>8</div><div>8</div><div>8</div><div>8</div><div>8</div>
+		<div>139</div><div>Debbie Testa</div><div>79</div><div>20</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div>
+		<div>140</div><div>Terri Grabiak</div><div>78</div><div>8</div><div>8</div><div>8</div><div>8</div><div>8</div><div>8</div><div>8</div><div>8</div><div>8</div><div>8</div>
+		<div>141</div><div>Jack Rieden</div><div>75</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div>
+		<div>142</div><div>Maxwell Coffey</div><div>74</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div>
+		<div>143</div><div>Scott Kasmere</div><div>74</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div>
+		<div>144</div><div>Judy Luoma</div><div>73</div><div>21</div><div>6</div><div>6</div><div>6</div><div>6</div><div>6</div><div>6</div><div>6</div><div>6</div><div>6</div>
+		<div>145</div><div>Gail Kemper</div><div>71</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div>
+		<div>146</div><div>Sheila Davis</div><div>70</div><div>29</div><div>15</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div>
+		<div>147</div><div>Lisa Graham</div><div>70</div><div>15</div><div>6</div><div>6</div><div>6</div><div>6</div><div>6</div><div>6</div><div>6</div><div>6</div><div>6</div>
+		<div>148</div><div>Timothy Tatum</div><div>70</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div>
+		<div>149</div><div>Vickie Ostrander</div><div>69</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div>
+		<div>150</div><div>Tom Rocha</div><div>67</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div>
+		<div>151</div><div>Ron Storlie</div><div>66</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div>
+		<div>152</div><div>Ray Minor</div><div>66</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div>
+		<div>153</div><div>Jean Kestner</div><div>66</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div>
+		<div>154</div><div>Sharyn Gatter</div><div>66</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div>
+		<div>155</div><div>Michelle Cummins</div><div>66</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div>
+		<div>156</div><div>Brenda Stokes</div><div>66</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div>
+		<div>157</div><div>Ileana Velez</div><div>66</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div>
+		<div>158</div><div>Loretta Lewis</div><div>66</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div>
+		<div>159</div><div>Doug Rampona</div><div>66</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div>
+		<div>160</div><div>Sheri Wegner</div><div>66</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div>
+		<div>161</div><div>David William Cable</div><div>66</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div>
+		<div>162</div><div>Kevin Christensen</div><div>66</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div>
+		<div>163</div><div>Ronda Busscher</div><div>66</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div>
+		<div>164</div><div>Sean Donnelly</div><div>66</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div>
+		<div>165</div><div>Deb Mumford</div><div>66</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div><div>7</div>
+		<div>166</div><div>Sandy Rosol</div><div>63</div><div>33</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div>
+		<div>167</div><div>Freda Allan</div><div>62</div><div>6</div><div>6</div><div>6</div><div>6</div><div>6</div><div>6</div><div>6</div><div>6</div><div>6</div><div>6</div>
+		<div>168</div><div>Susan McDowell</div><div>59</div><div>29</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div>
+		<div>169</div><div>Marissa Cordero</div><div>58</div><div>28</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div>
+		<div>170</div><div>Joan McVoy</div><div>54</div><div>5</div><div>5</div><div>5</div><div>5</div><div>5</div><div>5</div><div>5</div><div>5</div><div>5</div><div>5</div>
+		<div>171</div><div>Jackie Niblock</div><div>54</div><div>24</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div>
+		<div>172</div><div>Bruce Walker</div><div>50</div><div>0</div><div>24</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div>
+		<div>173</div><div>JP Dufour</div><div>48</div><div>5</div><div>5</div><div>5</div><div>5</div><div>5</div><div>5</div><div>5</div><div>5</div><div>5</div><div>5</div>
+		<div>174</div><div>Regina White</div><div>48</div><div>5</div><div>5</div><div>5</div><div>5</div><div>5</div><div>5</div><div>5</div><div>5</div><div>5</div><div>5</div>
+		<div>175</div><div>Ronda Busscher</div><div>48</div><div>5</div><div>5</div><div>5</div><div>5</div><div>5</div><div>5</div><div>5</div><div>5</div><div>5</div><div>5</div>
+		<div>176</div><div>Debbie Roy</div><div>47</div><div>5</div><div>5</div><div>5</div><div>5</div><div>5</div><div>5</div><div>5</div><div>5</div><div>5</div><div>5</div>
+		<div>177</div><div>Susan Campbell</div><div>47</div><div>5</div><div>5</div><div>5</div><div>5</div><div>5</div><div>5</div><div>5</div><div>5</div><div>5</div><div>5</div>
+		<div>178</div><div>Bob Dearth</div><div>43</div><div>4</div><div>4</div><div>4</div><div>4</div><div>4</div><div>4</div><div>4</div><div>4</div><div>4</div><div>4</div>
+		<div>179</div><div>Nancy Summers</div><div>43</div><div>4</div><div>4</div><div>4</div><div>4</div><div>4</div><div>4</div><div>4</div><div>4</div><div>4</div><div>4</div>
+		<div>180</div><div>Ann Friedline</div><div>33</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div>
+		<div>181</div><div>Dawn Sabogal</div><div>33</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div>
+		<div>182</div><div>Ellen Huber</div><div>33</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div>
+		<div>183</div><div>Daniel Lawson</div><div>33</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div>
+		<div>184</div><div>Linda McCool-Lee</div><div>33</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div>
+		<div>185</div><div>BettyJo Mercer</div><div>33</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div>
+		<div>186</div><div>Renie Curry</div><div>33</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div>
+		<div>187</div><div>Fred Gagne</div><div>33</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div>
+		<div>188</div><div>Marie dufour</div><div>33</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div><div>3</div>
+    </div>
+</body>
+</html>

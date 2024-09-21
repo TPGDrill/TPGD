@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title id="title">Mini Singles Results History</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="cache-control" content="no-cache, must-revalidate, post-check=0, pre-check=0, max-age=0" />
+    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+    <meta http-equiv="pragma" content="no-cache" />
+
+    <script src="./MiniSinglesResultsHistory.json"></script>
+    <script src="./ResultsHistory.js"></script>
+
+    <style>
+        .title {
+            display: flex;
+            justify-content: left;
+            margin: 8px 8px 2px 2px;
+            width: 100%;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .week-number {
+            display: flex;
+            justify-content: left;
+            margin: 22px 8px 2px 2px;
+            width: 100%;
+            font-size: 22px;
+        }
+
+        .location {
+            font-size: 18px;
+            padding-top: 8px;
+            padding-right: 10px;
+            padding-bottom: 8px;
+            padding-left: 20px;
+            text-decoration: underline;
+        }
+
+        .score {
+            font-size: 14px;
+            text-align: center;
+            border: 1px solid black;
+            border-left: 0px solid white;
+        }
+
+        .score2 {
+            border-top: 0px solid white;
+        }
+
+        .player-name {
+            font-size: 14px;
+            text-align: left;
+            border: 1px solid black;
+        }
+
+        .player2-name {
+            border-top: 0px solid white;
+        }
+
+        .score-row {
+            display: grid;
+            grid-template-columns: 170px 40px 40px 40px;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body onload="handleOnLoad()">
+    <!-- Caption and dropdown to select player -->
+    <div style="background-color: rgb(221,235, 247); text-align: center; padding-top: 6px; padding-bottom: 6px;">
+        <label for="player">Pick a player:</label>
+        <select name="player" id="player" onchange="handlePlayerChange()" style="width: 154px;"></select>
+    </div>
+
+    <div class="title">Mini Singles Results</div>
+
+    <div id="results-holder">
+
+    </div>
+
+</body>
+</html>
