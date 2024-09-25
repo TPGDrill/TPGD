@@ -31,7 +31,7 @@ namespace ReadWeeklyTPGD
             // - Mini Singles Results
 
             // Create and save Dinking Rankings Latest page
-            Console.Write("Creating Dinking latest rankings html...");
+            Console.Write("Creating Dinking latest rankings html....");
             WriteRankingsLatestHtmlFile("Dinking", BuildRankingsLatestPage("Dinking", xlFilePath, week).ToString());
             Console.WriteLine("done");
 
