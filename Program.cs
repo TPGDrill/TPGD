@@ -8,13 +8,16 @@ namespace ReadWeeklyTPGD
 {
     internal class Program
     {
-        const int week = 38;
-
         static void Main()
         {
             // excel document
             string xlFolder = @"E:\Users\Mark\Documents\Personal\PB\Tournament Players Drill Group\Spreadsheets\";
             string xlFilePath = xlFolder + @"TPG Drillers.xlsm";
+
+            Console.WriteLine("Current Dir: " + Environment.CurrentDirectory);
+
+            DirectoryInfo? di = new FileInfo(System.Reflection.Assembly.GetExecutingAssembly().Location)?.Directory;
+            Console.WriteLine("Code Dir: " + di?.FullName ?? "???");
 
             // Week number
             Console.Write("Week Number: ");
@@ -29,22 +32,22 @@ namespace ReadWeeklyTPGD
 
             // Create and save Dinking Rankings Latest page
             Console.Write("Creating Dinking latest rankings html...");
-            WriteRankingsLatestHtmlFile("Dinking", BuildRankingsLatestPage("Dinking", xlFilePath).ToString());
+            WriteRankingsLatestHtmlFile("Dinking", BuildRankingsLatestPage("Dinking", xlFilePath, week).ToString());
             Console.WriteLine("done");
 
             // Create and save Mini Singles Rankings Latest page
             Console.Write("Creating Mini Singles latest rankings html...");
-            WriteRankingsLatestHtmlFile("Mini Singles", BuildRankingsLatestPage("Mini Singles", xlFilePath).ToString());
+            WriteRankingsLatestHtmlFile("Mini Singles", BuildRankingsLatestPage("Mini Singles", xlFilePath, week).ToString());
             Console.WriteLine("done");
 
             // Create and save Dinking Results Latest page
             Console.Write("Creating Dinking latest results html...");
-            WriteResultsLatestHtmlFile("Dinking", BuildResultsLatestPage("Dinking", xlFilePath).ToString());
+            WriteResultsLatestHtmlFile("Dinking", BuildResultsLatestPage("Dinking", xlFilePath, week).ToString());
             Console.WriteLine("done");
 
             // Create and save Mini Singles Results Latest page
             Console.Write("Creating Mini Singles latest results html...");
-            WriteResultsLatestHtmlFile("Mini Singles", BuildResultsLatestPage("Mini Singles", xlFilePath).ToString());
+            WriteResultsLatestHtmlFile("Mini Singles", BuildResultsLatestPage("Mini Singles", xlFilePath, week).ToString());
             Console.WriteLine("done");
 
 
@@ -56,36 +59,32 @@ namespace ReadWeeklyTPGD
 
             // Add latest dinking rankings to json data file
             Console.Write("Updating Dinking historic rankings json...");
-            WriteRankingsHistoryJsonFile("Dinking", UpdateRankingsHistoryJsonFile("Dinking", xlFilePath).ToString());
+            WriteRankingsHistoryJsonFile("Dinking", UpdateRankingsHistoryJsonFile("Dinking", xlFilePath, week).ToString());
             Console.WriteLine("done");
 
             // Add latest Mini Singles rankings to json data file
             Console.Write("Updating Mini Singles historic rankings json...");
-            WriteRankingsHistoryJsonFile("Mini Singles", UpdateRankingsHistoryJsonFile("Mini Singles", xlFilePath).ToString());
+            WriteRankingsHistoryJsonFile("Mini Singles", UpdateRankingsHistoryJsonFile("Mini Singles", xlFilePath, week).ToString());
             Console.WriteLine("done");
 
             // Create and save Dinking Results Latest page
             Console.Write("Updating Dinking historic results json...");
-            WriteResultsHistoryJsonFile("Dinking", UpdateResultsHistoryJsonFile("Dinking", xlFilePath).ToString());
+            WriteResultsHistoryJsonFile("Dinking", UpdateResultsHistoryJsonFile("Dinking", xlFilePath, week).ToString());
             Console.WriteLine("done");
 
             // Create and save Mini Singles Results Latest page
             Console.Write("Updating Mini Singles historic results json...");
-            WriteResultsHistoryJsonFile("Mini Singles", UpdateResultsHistoryJsonFile("Mini Singles", xlFilePath).ToString());
+            WriteResultsHistoryJsonFile("Mini Singles", UpdateResultsHistoryJsonFile("Mini Singles", xlFilePath, week).ToString());
             Console.WriteLine("done");
 
             Console.WriteLine();
-            Console.Write("Press any key to finish");
+            Console.Write("Press 'Enter' key to finish");
             Console.ReadLine();
         }
 
         private static void WriteRankingsLatestHtmlFile(string pageType, string pageContent)
         {
-            string cd = Environment.CurrentDirectory;
-            var cdp = Directory.GetParent(cd);
-            var cdpp = cdp?.Parent;
-            var sp = cdpp?.Parent;
-            var fullFilename = (sp == null) ? null : sp.FullName + @"\" + pageType.Replace(" ", "") + "RankingsLatest.html";
+            var fullFilename = GetRootDir() + @"\" + pageType.Replace(" ", "") + "RankingsLatest.html";
 
             if (fullFilename != null)
             {
@@ -93,9 +92,9 @@ namespace ReadWeeklyTPGD
             }
         }
 
-        private static StringBuilder BuildRankingsLatestPage(string pageType, string xlFilePath)
+        private static StringBuilder BuildRankingsLatestPage(string pageType, string xlFilePath, int week)
         {
-            var sb = new StringBuilder(RankingsHeading(pageType));
+            var sb = new StringBuilder(RankingsHeading("(Week " + week.ToString() + ") " + pageType));
 
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance); //System.Text.
             using var stream = File.Open(xlFilePath, FileMode.Open, FileAccess.Read);
@@ -198,7 +197,7 @@ namespace ReadWeeklyTPGD
                 </style>
             </head>
             <body>
-                <div class="title">{title} Rankings</div>
+                <div class="title">Latest {title} Rankings</div>
 
                 <div class="header-row">
                     <div>Rank</div><div>Name</div><div>Total</div><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div>
@@ -228,11 +227,7 @@ namespace ReadWeeklyTPGD
 
         private static void WriteResultsLatestHtmlFile(string pageType, string pageContent)
         {
-            string cd = Environment.CurrentDirectory;
-            var cdp = Directory.GetParent(cd);
-            var cdpp = cdp?.Parent;
-            var sp = cdpp?.Parent;
-            var fullFilename = (sp == null) ? null : sp.FullName + @"\" + pageType.Replace(" ", "") + "ResultsLatest.html";
+            var fullFilename = GetRootDir() + @"\" + pageType.Replace(" ", "") + "ResultsLatest.html";
 
             if (fullFilename != null)
             {
@@ -240,7 +235,7 @@ namespace ReadWeeklyTPGD
             }
         }
 
-        private static StringBuilder BuildResultsLatestPage(string pageType, string xlFilePath)
+        private static StringBuilder BuildResultsLatestPage(string pageType, string xlFilePath, int week)
         {
             const int dinkingFirstRow = 2;
             const int miniSinglesFirstRow = 6;
@@ -251,7 +246,7 @@ namespace ReadWeeklyTPGD
             int rowIndex;
             string line;
 
-            var sb = new StringBuilder(ResultsHeading(pageType)); // (ResultsHeading(pageType));
+            var sb = new StringBuilder(ResultsHeading("(Week " + week.ToString() + ") " + pageType));
 
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance); //System.Text.
             using var stream = File.Open(xlFilePath, FileMode.Open, FileAccess.Read);
@@ -449,11 +444,7 @@ namespace ReadWeeklyTPGD
 
         private static void WriteRankingsHistoryJsonFile(string jsonType, string jsonContent)
         {
-            string cd = Environment.CurrentDirectory;
-            var cdp = Directory.GetParent(cd);
-            var cdpp = cdp?.Parent;
-            var sp = cdpp?.Parent;
-            var fullFilename = (sp == null) ? null : sp.FullName + @"\" + jsonType.Replace(" ", "") + "RankingsHistory.json";
+            var fullFilename = GetRootDir() + @"\" + jsonType.Replace(" ", "") + "RankingsHistory.json";
 
             if (fullFilename != null)
             {
@@ -461,15 +452,10 @@ namespace ReadWeeklyTPGD
             }
         }
 
-        private static string UpdateRankingsHistoryJsonFile(string jsonType, string xlFilePath)
+        private static string UpdateRankingsHistoryJsonFile(string jsonType, string xlFilePath, int week)
         {
             // Read json rankings history file
-            string cd = Environment.CurrentDirectory;
-            var cdp = Directory.GetParent(cd);
-            var cdpp = cdp?.Parent;
-            var sp = cdpp?.Parent;
-
-            var history = File.ReadAllText(sp + @"\" + jsonType.Replace(" ", "") + "RankingsHistory.json");
+            var history = File.ReadAllText(GetRootDir() + @"\" + jsonType.Replace(" ", "") + "RankingsHistory.json");
             var historyObj = history.Substring("rankingsHistoryData = ".Length, history.Length - 22);
             var scores = JsonSerializer.Deserialize<Dictionary<string, List<WeekRanking>>>(historyObj);
 
@@ -488,9 +474,9 @@ namespace ReadWeeklyTPGD
                 {
                     var rank = new WeekRanking(week, i);
                     // Either create a new player entry or just add to existing list of week/rank values
-                    if (scores.ContainsKey(playerName))
+                    if (scores.TryGetValue(playerName, out List<WeekRanking>? value))
                     {
-                        var rankList = scores[playerName];
+                        var rankList = value;
                         rankList?.Add(rank);
                     }
                     else
@@ -506,11 +492,7 @@ namespace ReadWeeklyTPGD
 
         private static void WriteResultsHistoryJsonFile(string jsonType, string jsonContent)
         {
-            string cd = Environment.CurrentDirectory;
-            var cdp = Directory.GetParent(cd);
-            var cdpp = cdp?.Parent;
-            var sp = cdpp?.Parent;
-            var fullFilename = (sp == null) ? null : sp.FullName + @"\" + jsonType.Replace(" ", "") + "ResultsHistory.json";
+            var fullFilename = GetRootDir() + @"\" + jsonType.Replace(" ", "") + "ResultsHistory.json";
 
             if (fullFilename != null)
             {
@@ -518,18 +500,13 @@ namespace ReadWeeklyTPGD
             }
         }
 
-        private static string UpdateResultsHistoryJsonFile(string jsonType, string xlFilePath)
+        private static string UpdateResultsHistoryJsonFile(string jsonType, string xlFilePath, int week)
         {
             Dictionary<string, List<Result>> matchResults = [];
 
             // Read json rankings history file
-            string cd = Environment.CurrentDirectory;
-            var cdp = Directory.GetParent(cd);
-            var cdpp = cdp?.Parent;
-            var sp = cdpp?.Parent;
-
-            var history = File.ReadAllText(sp + @"\" + jsonType.Replace(" ", "") + "ResultsHistory.json");
-            var historyObj = history.Substring("resultsHistoryData = ".Length - 1);
+            var history = File.ReadAllText(GetRootDir() + @"\" + jsonType.Replace(" ", "") + "ResultsHistory.json");
+            var historyObj = history[("resultsHistoryData = ".Length - 1)..];
 
             var scores = JsonSerializer.Deserialize<Dictionary<string, List<OneWeekResults>>>(historyObj);
 
@@ -696,6 +673,20 @@ namespace ReadWeeklyTPGD
                     }
                 }
             }
+        }
+
+        static string GetRootDir()
+        {
+
+            DirectoryInfo? di = new FileInfo(System.Reflection.Assembly.GetExecutingAssembly().Location)?.Directory;
+
+            var codeDir = di?.FullName;
+
+            if (codeDir == null) return "";
+
+            var root = Directory.GetParent(codeDir)?.Parent?.Parent?.FullName;
+
+            return root ?? "";
         }
     }
 }
