@@ -61,9 +61,45 @@
 
         .score-row {
             display: grid;
-            grid-template-columns: 170px 40px 40px 40px;
+            grid-template-columns: 160px 40px 40px 40px;
             padding-left: 20px;
         }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: 200px 40px;
+            padding-left: 20px;
+        }
+
+        .stats-title {
+            display: flex;
+            justify-content: left;
+            margin: 22px 8px 2px 2px;
+            width: 100%;
+            font-size: 22px;
+        }
+
+        .stat-name {
+            font-size: 14px;
+            text-align: left;
+            border: 1px solid black;
+        }
+
+        .stat-name-not-first {
+            border-top: 0px solid white;
+        }
+
+        .stat-value {
+            font-size: 14px;
+            text-align: center;
+            border: 1px solid black;
+            border-left: 0px solid white;
+        }
+
+        .stat-value-not-first {
+            border-top: 0px solid white;
+        }
+
     </style>
 </head>
 <body onload="handleOnLoad()">
