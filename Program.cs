@@ -11,7 +11,7 @@ namespace ReadWeeklyTPGD
         static void Main()
         {
             // excel document
-            string xlFolder = @"E:\Users\Mark\Documents\Personal\PB\Tournament Players Drill Group\Spreadsheets\";
+            string xlFolder = @"C:\Users\Mark\Documents\PB\Tournament Players Drill Group\Spreadsheets\";
             string xlFilePath = xlFolder + @"TPG Drillers.xlsm";
 
             Console.WriteLine("Current Dir: " + Environment.CurrentDirectory);
