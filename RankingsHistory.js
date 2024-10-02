@@ -5,7 +5,7 @@ const chartTitle = document.getElementById("title").innerText;
 
 function handleOnLoad() {
 
-    var lineColors = ["rgb(255,0,0", "rgb(0,255,0", "rgb(0,0,255"];
+    var lineColors = ["rgb(255,0,0)", "rgb(0,255,0)", "rgb(0,0,255)"];
 
     var chartDatasets = new Array();
 
@@ -20,7 +20,8 @@ function handleOnLoad() {
             pointRadius: 4,
             borderColor: lineColors[i],
             pointBackgroundColor: lineColors[i],
-            data: [{ x: null, y: null }]
+            //data: [{ x: null, y: null }]
+            data: [{x:2, y:4+i},{x:3, y:7+i},{x:4, y:12+i}]
         }
 
         var newDataset = Object.create(chartDataset);
@@ -93,7 +94,7 @@ function handleOnLoad() {
 
 function handlePlayerChange(playerNumber) {
     var playerName = document.getElementById("player" + playerNumber).value;
-    var lineColors = ["rgb(255,0,0", "rgb(0,255,0", "rgb(0,0,255"];
+    var lineColors = ["rgb(255,0,0)", "rgb(0,255,0)", "rgb(0,0,255)"];
     var chartDataset;
 
     if (playerName != "") {
