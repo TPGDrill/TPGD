@@ -21,7 +21,7 @@ function handleOnLoad() {
             borderColor: lineColors[i],
             pointBackgroundColor: lineColors[i],
             //data: [{ x: null, y: null }]
-            data: [{x:2, y:4+i},{x:3, y:7+i},{x:4, y:12+i}]
+            data: []
         }
 
         var newDataset = Object.create(chartDataset);

@@ -1,37 +1,33 @@
 // Globals
 var chart;
 var isDinking = document.getElementById("title").innerText.includes("Dinking");
+var isWeekly = document.getElementById("title").innerText.includes("Weekly");
 
 var channelNames = [];
 
-channelNames.push("Match Points For", "Match Points Against");
-channelNames.push("Game 1 Points For", "Game 1 Points Against");
-channelNames.push("Game 2 Points For", "Game 2 Points Against");
+if (isWeekly) {
+    channelNames.push("Match Points For", "Match Points Against");
+    channelNames.push("Game 1 Points For", "Game 1 Points Against");
+    channelNames.push("Game 2 Points For", "Game 2 Points Against");
+    if (isDinking) {
+        channelNames.push("Game 3 Points For", "Game 3 Points Against");
+    }
 
-if (isDinking)
-    channelNames.push("Game 3 Points For", "Game 3 Points Against");
+}else {
+    channelNames.push("Win % by score", "Win % by games");
+    channelNames.push("Av. Match Points For", "Av. Match Points Against");
+    channelNames.push("Av. Game 1 Points For", "Av. Game 1 Points Against");
+    channelNames.push("Av. Game 2 Points For", "Av. Game 2 Points Against");
+    if (isDinking) {
+        channelNames.push("Av. Game 3 Points For", "Av. Game 3 Points Against");
+    }
+}
 
 let defaultColors = [
     "#3366CC", "#DC3912", "#FF9900", "#109618", "#990099", "#3B3EAC", "#0099C6",
     "#DD4477", "#66AA00", "#B82E2E", "#316395", "#994499", "#22AA99", "#AAAA11",
     "#6633CC", "#E67300", "#8B0707", "#329262", "#5574A6", "#651067"
   ];
-
-
-
-// const statNames = [];
-
-// if (isDinking)
-//     statNames.push("Average Game 3 Points Against:", "Average Game 3 Points For:");
-// statNames.push("Average Game 2 Points Against:", "Average Game 2 Points For:");
-// statNames.push("Average Game 1 Points Against:", "Average Game 1 Points For:");
-// statNames.push("Average Match Points Against:", "Average Match Points For:");
-// statNames.push("Total Points Against:", "Total Points For:");
-// if (!isDinking)
-//     statNames.push("Matches Tied (by games):");
-// statNames.push("Matches Lost (by games):", "Matches Won (by games):");
-// statNames.push("Matches Tied (by score):", "Matches Lost (by score):", "Matches Won (by score):");
-// statNames.push("Total Matches Played:");
 
 const chartTitle = document.getElementById("title").innerText;
 
@@ -221,45 +217,37 @@ function handlePlayerChange() {
        stats.game3For += matches.gameNPointsFor[2];
        stats.game3Against += matches.gameNPointsAgainst[2];
 
-       // Create the points for this week in the Datasets
-    //    chartDatasets[0].data.push({x:weekNumber, y:matches.pointsFor});
-    //    chartDatasets[1].data.push({x:weekNumber, y:matches.pointsAgainst});
-        cds[0].data.push({x:weekNumber, y:matches.pointsFor / matches.played});
-        cds[1].data.push({x:weekNumber, y:matches.pointsAgainst / matches.played});
-        cds[2].data.push({x:weekNumber, y:matches.gameNPointsFor[0] / matches.played});
-        cds[3].data.push({x:weekNumber, y:matches.gameNPointsAgainst[0] / matches.played});
-        cds[4].data.push({x:weekNumber, y:matches.gameNPointsFor[1] / matches.played});
-        cds[5].data.push({x:weekNumber, y:matches.gameNPointsAgainst[1] / matches.played});
-        if (isDinking) {
-            cds[6].data.push({x:weekNumber, y:matches.gameNPointsFor[2] / matches.played});
-            cds[7].data.push({x:weekNumber, y:matches.gameNPointsAgainst[2] / matches.played});
+        // Create the points for this week in the Datasets
+        if (isWeekly) {
+            cds[0].data.push({x:weekNumber, y:matches.pointsFor / matches.played});
+            cds[1].data.push({x:weekNumber, y:matches.pointsAgainst / matches.played});
+            cds[2].data.push({x:weekNumber, y:matches.gameNPointsFor[0] / matches.played});
+            cds[3].data.push({x:weekNumber, y:matches.gameNPointsAgainst[0] / matches.played});
+            cds[4].data.push({x:weekNumber, y:matches.gameNPointsFor[1] / matches.played});
+            cds[5].data.push({x:weekNumber, y:matches.gameNPointsAgainst[1] / matches.played});
+            if (isDinking) {
+                cds[6].data.push({x:weekNumber, y:matches.gameNPointsFor[2] / matches.played});
+                cds[7].data.push({x:weekNumber, y:matches.gameNPointsAgainst[2] / matches.played});
+            }
+        }
+        else {
+            cds[0].data.push({x:weekNumber, y:(100 * stats.matchesWonByScore / stats.matchesPlayed).toFixed(2)});
+            cds[1].data.push({x:weekNumber, y:(100 * stats.matchesWonByGames / stats.matchesPlayed).toFixed(2)});
+            cds[2].data.push({x:weekNumber, y:(stats.pointsFor / stats.matchesPlayed).toFixed(2)});
+            cds[3].data.push({x:weekNumber, y:(stats.pointsAgainst / stats.matchesPlayed).toFixed(2)});
+            cds[4].data.push({x:weekNumber, y:(stats.game1For / stats.matchesPlayed).toFixed(2)});
+            cds[5].data.push({x:weekNumber, y:(stats.game1Against / stats.matchesPlayed).toFixed(2)});
+            cds[6].data.push({x:weekNumber, y:(stats.game2For / stats.matchesPlayed).toFixed(2)});
+            cds[7].data.push({x:weekNumber, y:(stats.game2Against / stats.matchesPlayed).toFixed(2)});
+            if (isDinking) {
+                cds[8].data.push({x:weekNumber, y:(stats.game3For / stats.matchesPlayed).toFixed(2)});
+                cds[9].data.push({x:weekNumber, y:(stats.game3Against / stats.matchesPlayed).toFixed(2)});
+                }
+
         }
     })
 
     // Put chart arrays into chart
-
-    
-
-    // statValues.push((stats.game3Against / stats.matchesPlayed).toFixed(2), (stats.game3For / stats.matchesPlayed).toFixed(2));
-    // statValues.push((stats.game2Against / stats.matchesPlayed).toFixed(2), (stats.game2For / stats.matchesPlayed).toFixed(2));
-    // statValues.push((stats.game1Against / stats.matchesPlayed).toFixed(2), (stats.game1For / stats.matchesPlayed).toFixed(2));
-
-    // statValues.push((stats.pointsAgainst / stats.matchesPlayed).toFixed(2), (stats.pointsFor / stats.matchesPlayed).toFixed(2));
-    // statValues.push(stats.pointsAgainst, stats.pointsFor);
-
-    // if (!isDinking)
-    //     statValues.push(stats.matchesTiedByGames);
-    // statValues.push(stats.matchesLostByGames, stats.matchesWonByGames);
-
-    // statValues.push(stats.matchesTiedByScore, stats.matchesLostByScore, stats.matchesWonByScore);
-
-    // statValues.push(stats.matchesPlayed);
-
-    //chart.data.datasets[0] = chartDataset;
-
-    //cds[0].data = []
-    // chart.data.datasets[0] = cds[0];
-    // chart.data.datasets[1] = cds[1];
     chart.data.datasets = new Array(); //cds;
 
     for (let i = 0; i < channelNames.length; i++) {
@@ -271,31 +259,30 @@ function handlePlayerChange() {
     chart.update();
 }
 
+// function handleChannelChange(name){
+//     handlePlayerChange();
+// }
+
 function toggleSettingsVisibility() {
     var settingsDisplay = document.getElementById("settings").style.display;
     document.getElementById("chartHolder").style.height = (settingsDisplay == "none") ? "80vh" : "88vh";
     document.getElementById("settings").style.display = (settingsDisplay == "none") ? "grid" : "none";
 }
 
+function handleTitleVisibleClick() {
+    var isChecked = document.getElementById("titleVisible").checked;
+
+    //chart.options.title.display = isChecked;
+    chart.config.options.title.display = isChecked;
+
+    chart.update();
+}
 
 function handleLegendVisibleClick() {
     var isChecked = document.getElementById("legendVisible").checked;
 
     //chart.options.legend.display = isChecked;
     chart.config.options.legend.display = isChecked;
-
-    chart.update();
-}
-
-// function handleChannelChange(name){
-//     handlePlayerChange();
-// }
-
-function handleTitleVisibleClick() {
-    var isChecked = document.getElementById("titleVisible").checked;
-
-    //chart.options.title.display = isChecked;
-    chart.config.options.title.display = isChecked;
 
     chart.update();
 }
